@@ -1,0 +1,17 @@
+meta {
+  name: Update Todo
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:5001/todos/2
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "description": "Clean my bathrrom"
+  }
+}
