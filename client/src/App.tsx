@@ -1,20 +1,14 @@
-import React, { FormEvent, FormEventHandler, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
 
 // export default App
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { ToastAction } from "@/components/ui/toast"
-import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 
 
 // my custom components
-import TodoBox from './components/todoBox'
 import DataTable from './data-table'
 import { ListItem, columns } from './columns'
 import EnterTodo from './components/enterTodo';
-
 
 //get all todo items
 
@@ -39,8 +33,7 @@ export default function App() {
   const [body, setBody] = useState([{}])
 
   const update = async () => {
-    const _body = await getData();
-    setBody(_body)
+    setBody(await getData());
   }
 
   useEffect(() => {
@@ -55,7 +48,7 @@ export default function App() {
       <div className="w-full max-w-sm items-center mx-auto my-2 text-center space-y-2">
         <h1 className='text-xl'><b>To-do List</b></h1>
         <EnterTodo update={update}></EnterTodo>
-        <DataTable columns={columns} data={body}></DataTable>
+        <DataTable columns={columns} data={body} update={update}></DataTable>
         <Toaster />
       </div>
     </div>

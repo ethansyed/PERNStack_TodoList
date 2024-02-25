@@ -1,11 +1,13 @@
 import express from "express";
 import cors from "cors";
+import compression from 'compression'
 import pool from "./db.js";
 
 const app = express();
 
 //middleware
 app.use(cors());
+app.use(compression());
 //req.body
 app.use(express.json());
 
@@ -68,9 +70,22 @@ app.delete("/todos/:id", async (req, res) => {
     try {
         const { id } = req.params;
         const deleteTodo = await pool.query("DELETE FROM todo WHERE todo_id =$1", [id]);
-        res.json("id " + id + " was deleted")
+        res.json("id " + id + " was deleted");
     } catch (err) {
-        console.error(err.message)
+        console.error(err.message);
+    }
+})
+
+// Delete multiple todos
+app.delete("/todos", async (req, res) => {
+    try {
+        const { ids } = req.body;
+        ids.forEach(async id => {
+            const deleteTodo = await pool.query("DELETE FROM todo WHERE todo_id =$1", [id]);
+        });
+        res.json("ids " + ids + " were deleted")
+    } catch (err) {
+        console.error(err.message);
     }
 })
 

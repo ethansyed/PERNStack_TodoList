@@ -1,7 +1,6 @@
 "use client"
 
 import { ColumnDef } from "@tanstack/react-table"
-import { MoreHorizontal } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -9,7 +8,6 @@ import {
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuLabel,
-    DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
@@ -25,9 +23,24 @@ export type ListItem = {
 
 async function deleteItem(todoId: number) {
     try {
-        const response = await fetch(`http://localhost:5001/todos/${todoId.toString()}`, {
+        await fetch(`http://localhost:5001/todos/${todoId.toString()}`, {
             method: "DELETE"
         })
+    } catch (err) {
+        let message;
+        if (err instanceof Error) message = err.message;
+        else message = String(err);
+        console.log(message);
+    }
+}
+
+async function updateItem(todoId: number) {
+    try {
+        const response = await fetch(`http://localhost:5001/todos/${todoId}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+        })
+
     } catch (err) {
         let message;
         if (err instanceof Error) message = err.message;
@@ -61,12 +74,18 @@ export const columns: ColumnDef<ListItem>[] = [
     },
     {
         accessorKey: "description",
-        header: () => <div className="text-left">Descripton</div>,
+        header: () => <div className="mx-4 text-left">Descripton</div>,
+        cell: ({ row }) => {
+            const item = row.original;
+            return (
+                <div className="mx-4 text-left">{item.description}</div>
+            )
+        }
     },
     {
         id: "actions",
         cell: ({ row }) => {
-            const payment = row.original
+            const item = row.original
             const { toast } = useToast()
 
             return (
@@ -74,27 +93,36 @@ export const columns: ColumnDef<ListItem>[] = [
                     <DropdownMenuTrigger asChild>
                         <Button variant="ghost" className="h-8 w-8 p-0">
                             <span className="sr-only">Open menu</span>
-                            <MoreHorizontal className="h-4 w-4" />
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                         <DropdownMenuItem
                             onClick={() => {
-                                navigator.clipboard.writeText(payment.todo_id.toString())
+                                navigator.clipboard.writeText(item.todo_id.toString())
                                 toast({
                                     description: "ID Copied!",
+                                    className: 'text-center'
                                 })
                             }
                             }
                         >
-                            Copy payment ID
+                            Copy to-do ID
                         </DropdownMenuItem>
                         <DropdownMenuItem
                             onClick={() => {
-                                deleteItem(payment.todo_id);
+
+                            }}
+                        >
+                            Edit to-do item
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                            onClick={() => {
+                                deleteItem(item.todo_id);
                                 toast({
+                                    variant: "destructive",
                                     description: "Item Deleted!",
+                                    className: 'text-center'
                                 })
                             }}
                         >Delete to-do item</DropdownMenuItem>

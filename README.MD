@@ -1,5 +1,31 @@
+# To-do List PERN Stack
 
-Server Setup:
+## Purpose
+My intent with this project is to get hands on experience building a fullstack web-app
+
+## Technologies Utilized:
+
+##### Frontend:
+React.js 
+shadcn - component library
+
+##### Backend:
+Node.js - Server side
+express.js - Router framework
+PostgreSQL database
+
+## Folders 
+client - contains all client-side code
+server - contains all server-side code
+pernAPI 
+    - contains base API endpoints used for testing
+    - .bru files can be opened Bruno API client
+
+## Setup (WIP): 
+
+### Client Setup:
+
+### Server Setup:
 
 1. Create a PostgreSQL DB
 2. Create your own schema 

@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { useToast } from "./ui/use-toast";
@@ -22,8 +22,7 @@ export default function EnterTodo(properties: props) {
                 body: JSON.stringify(body)
             })
             toast({
-                title: "Success! Item added to to-do list!",
-                description: "Request Successful",
+                title: "Success! Item added to list!",
             })
             properties.update();
             console.log(response);

@@ -13,21 +13,28 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
+import { useState } from "react"
+import { Button } from "./components/ui/button"
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
+    update: Function
 }
 
 export default function DataTable<TData, TValue>({
     columns,
     data,
+    update
 }: DataTableProps<TData, TValue>) {
     const table = useReactTable({
         data,
         columns,
         getCoreRowModel: getCoreRowModel(),
     })
+
+    const [selected, setSelected] = useState([]);
+    const [ammount, setAmount] = useState(0);
 
     return (
         <div className="rounded-md border">
@@ -48,10 +55,13 @@ export default function DataTable<TData, TValue>({
                                 )
                             })}
                         </TableRow>
+
                     ))}
+
                 </TableHeader>
                 <TableBody>
                     {table.getRowModel().rows?.length ? (
+
                         table.getRowModel().rows.map((row) => (
                             <TableRow
                                 key={row.id}
@@ -62,6 +72,7 @@ export default function DataTable<TData, TValue>({
                                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                     </TableCell>
                                 ))}
+
                             </TableRow>
                         ))
                     ) : (
