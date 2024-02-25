@@ -29,7 +29,6 @@ app.post("/todos", async (req, res) => {
 
 
 // Get ALL todos
-// TODO:
 app.get("/todos", async (req, res) => {
     try {
         const allTodos = await pool.query("SELECT * FROM todo");
@@ -40,7 +39,6 @@ app.get("/todos", async (req, res) => {
 })
 
 // Get single todo
-// TODO:
 app.get("/todos/:id", async (req, res) => {
     try {
         //Should probably check id type here
@@ -65,7 +63,6 @@ app.put("/todos/:id", async (req, res) => {
 })
 
 // Delete a todo
-// TODO:
 app.delete("/todos/:id", async (req, res) => {
     try {
         const { id } = req.params;

@@ -3,6 +3,22 @@
 ## Purpose
 My intent with this project is to get hands on experience building a fullstack web-app
 
+## Structure and Plans 
+
+### Structure
+- Client serves the UI that user interacts with and calls RESTful api endpoints
+- Server handles the api requests and queries or takes action on the database (CRUD actions)
+
+### Plans
+#### Frontend:
+- Add an option to edit the todo items
+- Properly rerender the list after an item has been deleted
+- Delete mutliple items at once
+
+#### Backend:
+- Delete mutiple items in the list in one request
+
+
 ## Technologies Utilized:
 
 ### Languages:
@@ -30,15 +46,6 @@ contains all server-side code
 #### pernAPI
 - contains base API endpoints used for testing
 - .bru files can be opened Bruno API client
-
-## Planned features
-#### Frontend:
-- Add an option to edit the todo items
-- Properly rerender the list after an item has been deleted
-- Delete mutliple items at once
-
-#### Backend:
-- Delete mutiple items in the list in one request
 
 ## Setup (WIP): 
 
