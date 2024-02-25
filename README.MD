@@ -20,11 +20,11 @@ PostgreSQL database
 
 ## Folders 
 #### client
-contains all client-side code\
+contains all client-side code
 - App.tsx : main app render
 
 #### server
-contains all server-side code\
+contains all server-side code
 - index.js : all api endpoints/database queries
 
 #### pernAPI
