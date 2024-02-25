@@ -19,11 +19,26 @@ express.js - Router framework\
 PostgreSQL database
 
 ## Folders 
-**client** - contains all client-side code\
-**server** - contains all server-side code\
-**pernAPI**
+#### client
+contains all client-side code\
+- App.tsx : main app render
+
+#### server
+contains all server-side code\
+- index.js : all api endpoints/database queries
+
+#### pernAPI
 - contains base API endpoints used for testing
 - .bru files can be opened Bruno API client
+
+## Planned features
+#### Frontend:
+- Add an option to edit the todo items
+- Properly rerender the list after an item has been deleted
+- Delete mutliple items at once
+
+#### Backend:
+- Delete mutiple items in the list in one request
 
 ## Setup (WIP): 
 
