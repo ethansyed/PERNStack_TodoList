@@ -5,21 +5,25 @@ My intent with this project is to get hands on experience building a fullstack w
 
 ## Technologies Utilized:
 
-##### Frontend:
-React.js 
-shadcn - component library
+### Languages:
+TypeScript\
+JavaScript\
 
-##### Backend:
-Node.js - Server side
-express.js - Router framework
-PostgreSQL database
+### Frontend:
+React.js\
+shadcn - component library\
+
+### Backend:
+Node.js - Server side\
+express.js - Router framework\
+PostgreSQL database\
 
 ## Folders 
-client - contains all client-side code
-server - contains all server-side code
-pernAPI 
-    - contains base API endpoints used for testing
-    - .bru files can be opened Bruno API client
+**client** - contains all client-side code\
+**server** - contains all server-side code\
+**pernAPI**\
+- contains base API endpoints used for testing
+- .bru files can be opened Bruno API client
 
 ## Setup (WIP): 
 
