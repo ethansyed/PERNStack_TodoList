@@ -7,21 +7,21 @@ My intent with this project is to get hands on experience building a fullstack w
 
 ### Languages:
 TypeScript\
-JavaScript\
+JavaScript
 
 ### Frontend:
 React.js\
-shadcn - component library\
+shadcn - component library
 
 ### Backend:
 Node.js - Server side\
 express.js - Router framework\
-PostgreSQL database\
+PostgreSQL database
 
 ## Folders 
 **client** - contains all client-side code\
 **server** - contains all server-side code\
-**pernAPI**\
+**pernAPI**
 - contains base API endpoints used for testing
 - .bru files can be opened Bruno API client
 
